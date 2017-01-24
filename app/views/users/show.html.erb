@@ -1,0 +1,13 @@
+
+
+<%= image_tag @user.image&.attachment&.url || '' %><br>
+<%= link_to "change image", edit_user_path(@user) %><br>
+<%= link_to "password update", password_change_user_path(@user) %>
+<table class="table">
+  <tr><td class="col-lg-1"><strong>Name:</strong></td><td class="col-lg-6"> <%= @user.fullname %></td>
+  <tr><td class="col-lg-1"><strong>Email:</strong></td><td class="col-lg-6"> <%= @user.email %></td>
+  <tr><td class="col-lg-1"><strong>Contact Number:</strong></td><td class="col-lg-6"> <%= @user.contact_number %></td>
+  <tr><td class="col-lg-1"><strong>Date of Birth:</strong></td><td class="col-lg-6"> <%= @user.date_of_birth %></td>
+  <tr><td class="col-lg-1"><strong>City:</strong></td><td class="col-lg-6"> <%= @user.city %></td>
+  <tr><td class="col-lg-1"><strong>Address:</strong></td><td class="col-lg-6"> <%= @user.address %></td>
+</table>

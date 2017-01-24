@@ -1,0 +1,73 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div  class="col-10">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true,  class: "form-control" %>
+  </div> 
+
+  <div class="col-10">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: true,  class: "form-control" %>
+  </div>
+
+
+
+  <div class="col-10">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true,  class: "form-control" %>
+  </div>
+
+  <div class="col-10">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off",  class: "form-control" %>
+  </div>
+
+  <div class="col-10">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off",  class: "form-control" %>
+  </div>
+
+  <div class="col-10">
+    <%= f.label :contact_number %><br />
+    <%= f.text_field :contact_number, autofocus: true,  class: "form-control" %>
+  </div>
+ 
+  <div class="col-10">
+    <%= f.label :city %><br />
+    <%= f.text_field :city, autofocus: true,  class: "form-control" %>
+  </div>
+
+  <div class="col-10">
+    <%= f.label :state %><br />
+    <%= f.text_field :state, autofocus: true,  class: "form-control" %>
+  </div>
+
+  <div class="col-10">
+    <%= f.label :address %><br />
+    <%= f.text_field :address, autofocus: true,  class: "form-control" %>
+  </div>
+
+  <div><%= f.radio_button :is_female, '1' %> <%= f.label :is_female, "Female" %></div>
+  <div><%= f.radio_button :is_female, '0' %> <%= f.label :is_female, "Male" %></div>
+
+  <div class="dropdown"><%= f.label :date_of_birth %><br />
+      <%= f.date_select :date_of_birth,  class: 'datepicker'  %>
+  </div>
+  <div >
+    <%= f.select :role_ids,  Role.where.not(name: 'admin').collect { |p| [ p.name, p.id ] }, { :prompt => 'Select'},{class: "form-control"} %>
+
+   <%#= f.select("user", "user_role", Role.all.collect { |p| [ p.name, p.name ] unless p.name='admin'  }, { :prompt => 'Select'},{class: "form-control"})%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "users/shared/links" %>

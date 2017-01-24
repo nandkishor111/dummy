@@ -1,0 +1,74 @@
+<%= @post.tag_list %>
+<p>
+  <strong>Title:</strong>
+  <%= post_title %>
+</p>
+<p>
+ <strong>Body:</strong>
+ <%#= (@post.body).html_safe%>
+ <%= simple_format truncate(h(post_body), length: 100000, separator: ' ') %>
+</p>
+<p>
+  <% @post.images.each do |image| %>
+  <%=  image_tag (image.attachment_url)  %>
+  <% end %>
+</p>
+
+
+<%= social_share_button_tag(@post.body).html_safe %>
+<%= render 'likes/like' %>
+<h1>Add comments</h1>
+<%= render 'comments/form' %>
+
+<h2>Comments</h2>
+
+<% @post.newest_comments.each do |comment| %>
+
+<p>
+  <strong>commenter:</strong>
+  <%= comment.user.fullname %>
+</p>
+
+<p>
+ <strong>comments:</strong>
+ <%= comment.comment %>
+</p>
+<p>
+</p>
+
+
+
+<p>
+  <% if user_signed_in? %>
+    <%if @post.user_id==current_user.id or current_user.has_role? :admin%>
+
+     <%= link_to 'Destroy Comment', [comment.post, comment],
+      method: :delete,
+     data: { confirm: 'Are you sure?' } %>
+    <%end%> 
+  <% end %>
+
+   <%if user_signed_in? %>
+ 
+  <% unless comment.likes.where(user_id: current_user.id).present?   %>
+   <div id= "like_btn">  
+    <%= link_to 'Like', like_comment_post_comment_path(@post, comment), method: :post,remote: true, class: "btn btn-success" %>
+    </div>
+  <%else%>
+  
+    <button class="btn btn-primary">Liked</button>
+
+  <%end%>
+  <% end %>
+ 
+
+    
+
+</p>
+
+<% end %>
+
+<% if user_signed_in? %>
+<%= link_to 'Back', posts_path %>
+<% end %>
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>

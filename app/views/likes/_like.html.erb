@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+     <p> <%unless @post.likes.where(user_id: current_user.id).present? %>
+     <div id="like_btn">
+      <%= link_to 'Like', post_likes_path(@post), method: :post,remote: true, class: "btn btn-success" %>   <%= @post.likes.count %>
+      </div>
+      <%else%>
+      	<button class="btn btn-primary">Liked</button>  <%= @post.likes.count %>
+      <%end%>
+     </p>
+<% end %>

@@ -1,0 +1,53 @@
+<h1>Posts</h1>
+
+ <% if can? :create, @post %>
+  <%= link_to "New Post", new_post_path, class: "btn btn-primary" %>
+ <%end%>
+
+<h1>Listing Posts</h1>
+ 
+  <table class="table">
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th>Images</th>
+    <th colspan="3">Action</th>
+  </tr>
+  
+  <% @posts.each do |post| %>
+
+    <%= raw tag_links(post.tag_list.to_s) %>
+         
+
+     <tr class="success">
+      <td><%= post.title %></td>
+      <td><%= post.body %></td>
+      <td>
+        <% post.images.each do |image| %>
+          <%="#{time_ago_in_words(post.created_at)} ago by"%> <%= post.user.fullname %><br>
+          <%=  image_tag (image.attachment), :size => "50x50"  %>
+          <p>Total view: <%=post.countviews%>  <p> 
+        <% end %>
+      </td>
+
+      <td><%= link_to 'show', post_path(post) %></td>
+      <td><%= link_to 'edit', edit_post_path(post) %></td>
+      <td><%= link_to 'Destroy', post_path(post),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  
+  <%end%>
+</table>
+
+<div class="tags-cloud glassy-bg">
+  <h4>Tags Cloud</h4>
+  <% tag_cloud Tag.counts, %w{css1 css2 css3 css4} do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
+
+<%#= will_paginate @posts %>
+  
+
+<%= link_to 'Back', posts_path %>

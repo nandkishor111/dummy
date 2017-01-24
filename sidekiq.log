@@ -1,0 +1,42 @@
+# Logfile created on 2017-01-24 12:14:11 +0530 by logger.rb/56438
+DEPRECATION WARNING: Sprockets method `register_engine` is deprecated.
+Please register a mime type using `register_mime_type` then
+use `register_compressor` or `register_transformer`.
+https://github.com/rails/sprockets/blob/master/guides/extending_sprockets.md#supporting-all-versions-of-sprockets-in-processors
+ (called from block in <class:Railtie> at /home/rails/.rvm/gems/ruby-2.3.3/gems/less-rails-2.8.0/lib/less/rails/railtie.rb:16)
+'production' database is not configured. Available: ["development"]
+/home/rails/.rvm/gems/ruby-2.3.3/gems/activerecord-5.0.1/lib/active_record/connection_adapters/connection_specification.rb:236:in `resolve_symbol_connection'
+/home/rails/.rvm/gems/ruby-2.3.3/gems/activerecord-5.0.1/lib/active_record/connection_adapters/connection_specification.rb:217:in `resolve_connection'
+/home/rails/.rvm/gems/ruby-2.3.3/gems/activerecord-5.0.1/lib/active_record/connection_adapters/connection_specification.rb:138:in `resolve'
+/home/rails/.rvm/gems/ruby-2.3.3/gems/activerecord-5.0.1/lib/active_record/connection_adapters/connection_specification.rb:168:in `spec'
+/home/rails/.rvm/gems/ruby-2.3.3/gems/activerecord-5.0.1/lib/active_record/connection_handling.rb:53:in `establish_connection'
+/home/rails/.rvm/gems/ruby-2.3.3/gems/activerecord-5.0.1/lib/active_record/railtie.rb:125:in `block (2 levels) in <class:Railtie>'
+/home/rails/.rvm/gems/ruby-2.3.3/gems/activesupport-5.0.1/lib/active_support/lazy_load_hooks.rb:43:in `instance_eval'
+/home/rails/.rvm/gems/ruby-2.3.3/gems/activesupport-5.0.1/lib/active_support/lazy_load_hooks.rb:43:in `execute_hook'
+/home/rails/.rvm/gems/ruby-2.3.3/gems/activesupport-5.0.1/lib/active_support/lazy_load_hooks.rb:33:in `block in on_load'
+/home/rails/.rvm/gems/ruby-2.3.3/gems/activesupport-5.0.1/lib/active_support/lazy_load_hooks.rb:32:in `each'
+/home/rails/.rvm/gems/ruby-2.3.3/gems/activesupport-5.0.1/lib/active_support/lazy_load_hooks.rb:32:in `on_load'
+/home/rails/.rvm/gems/ruby-2.3.3/gems/activerecord-5.0.1/lib/active_record/railtie.rb:121:in `block in <class:Railtie>'
+/home/rails/.rvm/gems/ruby-2.3.3/gems/railties-5.0.1/lib/rails/initializable.rb:30:in `instance_exec'
+/home/rails/.rvm/gems/ruby-2.3.3/gems/railties-5.0.1/lib/rails/initializable.rb:30:in `run'
+/home/rails/.rvm/gems/ruby-2.3.3/gems/railties-5.0.1/lib/rails/initializable.rb:55:in `block in run_initializers'
+/home/rails/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/tsort.rb:228:in `block in tsort_each'
+/home/rails/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/tsort.rb:350:in `block (2 levels) in each_strongly_connected_component'
+/home/rails/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/tsort.rb:431:in `each_strongly_connected_component_from'
+/home/rails/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/tsort.rb:349:in `block in each_strongly_connected_component'
+/home/rails/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/tsort.rb:347:in `each'
+/home/rails/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/tsort.rb:347:in `call'
+/home/rails/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/tsort.rb:347:in `each_strongly_connected_component'
+/home/rails/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/tsort.rb:226:in `tsort_each'
+/home/rails/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/tsort.rb:205:in `tsort_each'
+/home/rails/.rvm/gems/ruby-2.3.3/gems/railties-5.0.1/lib/rails/initializable.rb:54:in `run_initializers'
+/home/rails/.rvm/gems/ruby-2.3.3/gems/railties-5.0.1/lib/rails/application.rb:352:in `initialize!'
+/home/rails/projects/myBlog/config/environment.rb:5:in `<top (required)>'
+/home/rails/.rvm/gems/ruby-2.3.3/gems/sidekiq-4.2.9/lib/sidekiq/cli.rb:248:in `require'
+/home/rails/.rvm/gems/ruby-2.3.3/gems/sidekiq-4.2.9/lib/sidekiq/cli.rb:248:in `boot_system'
+/home/rails/.rvm/gems/ruby-2.3.3/gems/sidekiq-4.2.9/lib/sidekiq/cli.rb:50:in `run'
+/home/rails/.rvm/gems/ruby-2.3.3/gems/sidekiq-4.2.9/bin/sidekiq:12:in `<top (required)>'
+/home/rails/.rvm/gems/ruby-2.3.3/bin/sidekiq:22:in `load'
+/home/rails/.rvm/gems/ruby-2.3.3/bin/sidekiq:22:in `<main>'
+/home/rails/.rvm/gems/ruby-2.3.3/bin/ruby_executable_hooks:15:in `eval'
+/home/rails/.rvm/gems/ruby-2.3.3/bin/ruby_executable_hooks:15:in `<main>'

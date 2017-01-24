@@ -1,0 +1,14 @@
+<h1>Send Request for Change Role</h1>
+<%= form_for @approverole do |f| %>
+  
+    <div>
+       <%= f.select :role_id, Role.where.not(name: 'admin').collect { |p| [ p.name, p.id ] unless current_user.roles }, { :prompt => 'Select'},{class: "form-control"} %>
+    </div>
+    <br>
+     <!--unless (['admin'].concat(current_user.roles.map(&:name))).include? p.name },-->
+       <%= f.submit "Submit", class: "btn btn-success" %>
+<% end %>
+   
+   
+
+

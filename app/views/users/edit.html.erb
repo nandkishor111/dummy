@@ -1,0 +1,14 @@
+<h1>Upload Profile Image</h1>
+
+<%= form_for  @user do |f| %>
+	<div>
+	  <%= f.label "Image" %>
+      <%= f.fields_for :image, current_user.image || current_user.build_image do |i| %> 
+        <%= i.file_field :attachment%>
+      <% end %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Update" %>
+    </div>
+<% end %>

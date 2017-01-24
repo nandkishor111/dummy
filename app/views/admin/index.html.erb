@@ -1,0 +1,39 @@
+<h1>welcome Admin<h1>
+
+<h1>Listing Posts</h1>
+ 
+<table class="table">
+  <tr class="info">
+    <th class="col-lg-2">Title</th>
+    <th class="col-lg-6">Text</th>
+    <th class="col-lg-3">Images</th>
+    <th class="col-lg-3">Action</th>
+  </tr>
+ 
+  <% @posts.each do |post| %>
+    <tr >
+      <td><%= post.title %></td>
+      <td>
+        <%= simple_format truncate(h(post.body), length: 400, separator: ' ') %><%= link_to "Read More", post_path(post)%>
+      </td>
+      <td>
+        <% post.images.each do |image| %>
+          <%="#{time_ago_in_words(post.created_at)} ago by"%> <%= post.user.fullname %><br>
+          <%=  image_tag (image.attachment), :size => "50x50"  %><br>
+          <p>Total view: <%=post.countviews%>  <p> 
+        <% end %>
+       </td>
+       <td><p> <%unless post.panding.present? %>
+               <%= link_to 'Approve',  approve_post_admin_path(post), method: :post, class: "btn btn-success" %>
+               <%else%>
+      	        <button class="btn btn-primary">Approved</button>
+               <%end%>
+            </p>
+            <%= link_to 'Destroy', admin_path(post),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+        </td>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate @posts %>
